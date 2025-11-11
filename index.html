@@ -216,6 +216,91 @@
             color: #ccc;
         }
 
+        /* Mobile devices (max-width: 768px) */
+    @media (max-width: 768px) {
+        .head {
+            flex-direction: column; /* Stack header items */
+            padding: 20px 0;
+        }
+
+        .brand {
+            margin-bottom: 15px;
+        }
+
+        .menu a {
+            margin: 0 10px; /* Tighter menu spacing */
+        }
+
+        .hero {
+            height: auto; /* Auto height on mobile */
+            padding: 60px 20px; /* Add top/bottom padding */
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* Hero Image/Photo adjustment for mobile */
+        .hero-photo {
+            position: relative; /* Make it flow naturally */
+            order: -1; /* Place it above content */
+            width: 80%; 
+            height: 300px;
+            margin: 0 auto 30px; 
+            background-size: contain;
+            opacity: 1; 
+        }
+
+        .hero-content {
+            width: 100%; /* Full width content */
+            padding-right: 0;
+            text-align: center;
+        }
+
+        .greet, .tag {
+            font-size: 2.5rem; /* Smaller text */
+        }
+
+        .text {
+            width: 100%; /* Full width text block */
+            margin: 0 auto 30px;
+        }
+
+        .group {
+            justify-content: center; /* Center buttons */
+        }
+        
+        /* Skills and Projects grids switch to a single column */
+        .skillgrid, .grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+
+    /* Small mobile devices (max-width: 480px) */
+    @media (max-width: 480px) {
+        .greet, .tag {
+            font-size: 2rem; /* Even smaller text */
+        }
+
+        .group {
+            flex-direction: column; /* Stack buttons vertically */
+            gap: 10px;
+        }
+        
+        .button {
+            padding: 12px 20px;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap; /* Allow menu items to wrap */
+            justify-content: center;
+        }
+        .menu a {
+            margin: 5px 10px; 
+        }
+    }
+</style>
+
 
     </style>
 </head>
