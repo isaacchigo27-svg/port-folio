@@ -275,31 +275,134 @@
         }
     }
 
-    /* Small mobile devices (max-width: 480px) */
-    @media (max-width: 480px) {
-        .greet, .tag {
-            font-size: 2rem; /* Even smaller text */
-        }
+  /* --- Media Queries --- */
 
-        .group {
-            flex-direction: column; /* Stack buttons vertically */
-            gap: 10px;
-        }
-        
-        .button {
-            padding: 12px 20px;
-        }
-
-        .menu {
-            display: flex;
-            flex-wrap: wrap; /* Allow menu items to wrap */
-            justify-content: center;
-        }
-        .menu a {
-            margin: 5px 10px; 
-        }
+/* Adjustments for Tablets and smaller desktops (Max width 1200px and down) */
+@media (max-width: 1200px) {
+    /* Remove fixed width constraint and allow full responsiveness */
+    body {
+        width: 100%;
+        margin: 0;
+        /* Re-center hero content/header content without fixed body width */
+        padding: 0 20px; 
+        box-sizing: border-box; /* Include padding in the element's total width and height */
     }
-</style>
+
+    .head {
+        padding: 20px 0; /* Adjusted padding after body padding */
+    }
+
+    .hero-content {
+        width: 60%; /* Giving content more space against the image */
+    }
+}
+
+/* Adjustments for Tablets (Max width 1024px) */
+@media (max-width: 1024px) {
+    /* Hero section adjustments */
+    .hero {
+        height: 600px; /* Slightly reduce height */
+    }
+
+    .hero-photo {
+        width: 50%; /* Make image smaller */
+    }
+
+    .greet {
+        font-size: 3rem;
+    }
+
+    .tag {
+        font-size: 2.5rem;
+    }
+
+    /* Grid adjustments for 2 columns */
+    .skillgrid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for skills */
+        gap: 20px;
+        max-width: 700px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for projects */
+        gap: 20px;
+        max-width: 900px;
+    }
+}
+
+/* Adjustments for Mobile Phones (Max width 768px) */
+@media (max-width: 768px) {
+    .head {
+        flex-direction: column; /* Stack logo and menu */
+        padding: 10px 0;
+    }
+
+    .menu {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .menu a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+    }
+
+    /* Hero section: Stack content and photo (remove absolute positioning) */
+    .hero {
+        flex-direction: column;
+        height: auto;
+        padding-top: 50px;
+    }
+
+    .hero-photo {
+        position: static; /* Remove absolute positioning */
+        width: 100%;
+        height: 300px; /* Fixed height for mobile image */
+        background-position: top center; 
+        order: -1; /* Place image above content */
+    }
+
+    .hero-content {
+        width: 100%; /* Take full width */
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .text {
+        width: 100%; /* Use full width for text */
+        margin: 20px auto;
+    }
+    
+    .greet, .tag {
+        font-size: 2.5rem; /* Further reduced font size */
+        line-height: 1.2;
+    }
+
+    .title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .group {
+        justify-content: center; /* Center the buttons */
+    }
+    
+    .button {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Single column layout for both skills and projects */
+    .skillgrid, .grid {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 15px;
+        max-width: 90%; /* Limit max-width to center well on smaller screens */
+    }
+
+    .scard, .item {
+        padding: 20px;
+    }
+}
 
 
     </style>
