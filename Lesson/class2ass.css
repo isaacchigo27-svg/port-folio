@@ -1,0 +1,79 @@
+/* --- Base Container (The "Sun" or System Center) --- */
+.planet-system {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 100px auto; /* Center on the page for visibility */
+}
+
+/* --- The Main Planet --- */
+.planet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    margin: -20px 0 0 -20px;
+    background-color: #007bff; /* Blue Planet */
+    border-radius: 50%;
+}
+    
+    /* Optional: Add a subtle pulse to the planet itself */
+    animation: {
+      planetPulse 4s ease-in-out 0s infinite alternate-reverse both; 
+}
+
+/* --- 2️⃣ Pseudo-elements (::before & ::after) --- */
+/* We'll use both to create two independent orbiting "moons" */
+
+/* Moon 1: Fast, close orbit */
+.planet::before {
+    content: '';
+    position: absolute;
+    /* Center the pseudo-element on the planet */
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    margin: -5px 0 0 -5px;
+    background-color: #ffcc00; /* Yellow Moon */
+    border-radius: 50%;
+}
+    
+    /* --- 1️⃣ Animation Property (Full Shorthand) --- */
+    animation: 
+      orbit 4s linear 0s infinite normal none;
+   
+
+.planet::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin: -3px 0 0 -3px;
+    background-color: #252323; /* White Moon */
+    border-radius: 50%;
+    
+    animation: 
+      orbitWide 6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s infinite reverse both;
+}
+
+
+
+@keyframes planetPulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes orbit {
+    0% { transform: rotate(0deg) translate(80px) rotate(0deg); }
+    100% { transform: rotate(360deg) translate(80px) rotate(-360deg); }
+}
+
+@keyframes orbitWide {
+    0% { transform: rotate(0deg) translate(120px) rotate(0deg) scale(1); }
+    100% { transform: rotate(-360deg) translate(120px) rotate(360deg) scale(0.8); }
+}
